@@ -40,6 +40,15 @@ export const TodosStore = signalStore(
                     todos: [...state.todos, todo],
                 }));
 
+            },
+
+            async deleteTodo(id:string) {
+                await todosServices.deleteTodo(id);
+
+                patchState(store, (state) => ({
+                    ...state,
+                    todos: state.todos.filter((todo) => todo.id !== id),
+                }));
             }
         })
     )

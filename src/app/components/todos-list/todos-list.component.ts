@@ -1,6 +1,7 @@
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,6 +14,7 @@ import { TodosStore } from '../../store/todo.store';
   standalone: true,
   imports: [
     MatFormFieldModule,
+    MatButtonModule,
     MatInputModule,
     MatButtonToggleModule,
     MatListModule,
@@ -29,5 +31,10 @@ export class TodosListComponent {
   async onAddTodo(title: string) {
     await this.store.addTodo(title);
     this.input.nativeElement.value = ''; // Better use a form control
+  }
+
+  async onDeleteTodo(id: string, event: MouseEvent) {
+    event.stopPropagation();
+    await this.store.deleteTodo(id);
   }
 }

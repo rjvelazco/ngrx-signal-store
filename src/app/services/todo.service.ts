@@ -23,4 +23,8 @@ export class TodosService {
       id: Date.now().toString(),
     } as Todo;
   }
+
+  async deleteTodo(id: string): Promise<void> {
+    await sleep(500);
+  }
 }

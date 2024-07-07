@@ -1,6 +1,6 @@
 import { Todo } from "../models/todo.models";
 
-export const TODOS: Todo[] = [
+export const MOCK_TODOS: Todo[] = [
     {
         id: '1',
         title: 'Learn Angular',

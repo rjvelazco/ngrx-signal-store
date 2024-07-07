@@ -1,8 +1,10 @@
-<div class="main">
+<main class="main">
 
-  <div class="title-section">
+  <div class="section">
     <h1 class="title">Todo App - NgRx Signal Store</h1>
   </div>
 
-</div>
+  {{ store.todos() | json }}
+
+</main>
 <router-outlet />

@@ -1,4 +1,5 @@
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { NgStyle } from '@angular/common';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,6 +14,7 @@ import { TodosStore } from '../../store/todo.store';
   selector: 'todos-list',
   standalone: true,
   imports: [
+    NgStyle,
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
@@ -36,5 +38,10 @@ export class TodosListComponent {
   async onDeleteTodo(id: string, event: MouseEvent) {
     event.stopPropagation();
     await this.store.deleteTodo(id);
+  }
+
+  async onUpdateTodo(id: string, completed: boolean) {
+    await this.store.updateTodo(id, completed);
+    console.log('Todo updated');
   }
 }

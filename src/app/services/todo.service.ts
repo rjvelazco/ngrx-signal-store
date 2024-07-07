@@ -24,7 +24,11 @@ export class TodosService {
     } as Todo;
   }
 
-  async deleteTodo(id: string): Promise<void> {
+  async deleteTodo(_id: string): Promise<void> {
+    await sleep(500);
+  }
+
+  async updateTodo(_id: string, _completed: boolean): Promise<void> {
     await sleep(500);
   }
 }

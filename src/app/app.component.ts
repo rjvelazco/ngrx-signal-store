@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
+import { TodosStore } from './store/todo.store';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,14 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'signal-store';
+
+
+  store = inject(TodosStore);
+
+  ngOnInit(): void {
+      
+  }
+
 }

@@ -1,10 +1,13 @@
 <main class="main">
 
   <div class="section">
-    <h1 class="title">Todo App - NgRx Signal Store</h1>
+    <h1>NgRx Signal Store Todo Apps</h1>
   </div>
 
-  {{ store.todos() | json }}
-
+  @if(!store.loading()) {
+    <todos-list/>
+  } @else {
+    <mat-spinner />
+  }
 </main>
 <router-outlet />

@@ -1,6 +1,6 @@
 <mat-form-field class="todo-input">
     <mat-label>Enter a TODO and press Enter</mat-label>
-    <input matInput #task>
+    <input matInput #input (keyup.enter)="onAddTodo(input.value)">
     <mat-icon matSuffix>mode_edit</mat-icon>
 </mat-form-field>
 <mat-button-toggle-group #filter>
